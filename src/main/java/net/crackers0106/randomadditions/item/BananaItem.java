@@ -29,7 +29,7 @@ public class BananaItem extends Item {
 		ItemStack itemStack = user.getStackInHand(hand);
 		if (itemStack.isItemEqual(RAItems.BANANA.getDefaultStack())) {
 			world.playSound(user, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_WOOL_BREAK, SoundCategory.PLAYERS, 1.0F, 1.0F);
-			return new TypedActionResult(ActionResult.PASS, new ItemStack(RAItems.PEELED_BANANA));
+			return new TypedActionResult(ActionResult.PASS, ItemUsage.exchangeStack(itemStack, user, new ItemStack(RAItems.PEELED_BANANA)));
 		}
 		if (itemStack.isItemEqual(RAItems.BANANA_PEEL.getDefaultStack())) {
 			//place on the floor? //compostable?
