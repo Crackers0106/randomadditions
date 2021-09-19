@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "result": {
+    "item": "randomadditions:polished_netherrack",
+    "count": 4
+  }
+}

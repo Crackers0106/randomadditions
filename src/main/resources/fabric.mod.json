@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "randomadditions",
+  "version": "${version}",
+
+  "name": "Random Additions",
+  "description": "A mod that just adds random things for fun",
+  "authors": [
+    "Crackers0106"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/randomadditions/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.crackers0106.randomadditions.RandomAdditions"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
