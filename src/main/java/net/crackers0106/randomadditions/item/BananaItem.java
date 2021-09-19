@@ -1,6 +1,9 @@
 package net.crackers0106.randomadditions.item;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,9 +21,8 @@ public class BananaItem extends Item {
 	}
 
 	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) { // fires when finished using
-		if (stack.isItemEqual(RAItems.PEELED_BANANA.getDefaultStack())) {
-			ItemStack itemStack = super.finishUsing(stack, world, user);
-			return user instanceof PlayerEntity && ((PlayerEntity) user).getAbilities().creativeMode ? itemStack : new ItemStack(RAItems.BANANA_PEEL);
+		if (stack.isItemEqual(RAItems.PEELED_BANANA.getDefaultStack()) && !((PlayerEntity) user).getAbilities().creativeMode) { // this is probs unsafe if non players eat food
+			user.dropItem(RAItems.BANANA_PEEL); // theres probs a way to give it directly to player inventory
 		}
 		return super.finishUsing(stack, world, user);
 	}
@@ -29,7 +31,8 @@ public class BananaItem extends Item {
 		ItemStack itemStack = user.getStackInHand(hand);
 		if (itemStack.isItemEqual(RAItems.BANANA.getDefaultStack())) {
 			world.playSound(user, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_WOOL_BREAK, SoundCategory.PLAYERS, 1.0F, 1.0F);
-			return new TypedActionResult(ActionResult.PASS, ItemUsage.exchangeStack(itemStack, user, new ItemStack(RAItems.PEELED_BANANA)));
+			ItemStack replaceOneItemStack = ItemUsage.exchangeStack(itemStack, user, new ItemStack(RAItems.PEELED_BANANA));
+			return new TypedActionResult(ActionResult.PASS, replaceOneItemStack);
 		}
 		if (itemStack.isItemEqual(RAItems.BANANA_PEEL.getDefaultStack())) {
 			//place on the floor? //compostable?
