@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "randomadditions:block/banana_leaves"
+  }
+}

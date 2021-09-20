@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.crackers0106.randomadditions.RandomAdditions"
+    ],
+    "client": [
+      "net.crackers0106.randomadditions.RandomAdditionsClient"
     ]
   },
   "mixins": [

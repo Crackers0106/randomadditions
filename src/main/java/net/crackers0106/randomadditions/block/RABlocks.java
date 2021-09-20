@@ -1,8 +1,10 @@
 package net.crackers0106.randomadditions.block;
+
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
+import net.minecraft.block.GlowLichenBlock;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -20,6 +22,9 @@ public class RABlocks {
     public static final Block CUT_STONE;
     public static final Block POLISHED_STONE;
     public static final Block MINI_STONE_BRICKS;
+    public static final Block SCULK;
+    public static final Block SCULK_VEIN;
+    public static final Block SCULK_CATALYST;
 
     static {
     	
@@ -55,6 +60,29 @@ public class RABlocks {
         		.requiresTool()), 
         		buildingBlock());
 
+    	SCULK = register("sculk", new Block(FabricBlockSettings.of(Material.SCULK)
+    			.breakByTool(FabricToolTags.HOES, 1)
+        		.breakByHand(true)
+    			.strength(1.5F)
+    			.sounds(BlockSoundGroup.SCULK_SENSOR)), 
+    			buildingBlock());    	
+    	
+    	SCULK_VEIN = register("sculk_vein", new GlowLichenBlock(FabricBlockSettings.of(Material.SCULK)
+    			.breakByTool(FabricToolTags.HOES, 1)
+    			.breakByHand(true)
+    			.strength(1.5F)
+    			.noCollision()
+    			.nonOpaque()
+    			.sounds(BlockSoundGroup.SCULK_SENSOR)),
+    			buildingBlock());    	
+    	
+    	SCULK_CATALYST = register("sculk_catalyst", new Block(FabricBlockSettings.of(Material.SCULK)
+    			.breakByTool(FabricToolTags.HOES, 1)
+    			.breakByHand(true)
+    			.strength(1.5F)
+    			.sounds(BlockSoundGroup.SCULK_SENSOR)), 
+    			buildingBlock());    	
+    	
     }
 
 private static Item.Settings buildingBlock() {

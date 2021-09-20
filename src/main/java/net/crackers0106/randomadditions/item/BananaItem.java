@@ -1,9 +1,6 @@
 package net.crackers0106.randomadditions.item;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,6 +24,7 @@ public class BananaItem extends Item {
 		return super.finishUsing(stack, world, user);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) { // fires when player right clicks
 		ItemStack itemStack = user.getStackInHand(hand);
 		if (itemStack.isItemEqual(RAItems.BANANA.getDefaultStack())) {
