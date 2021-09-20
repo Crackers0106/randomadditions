@@ -10,10 +10,12 @@ public class RAItems {
 	
     // an instance of our new item
     public static final Item BANANA = new BananaItem(new Item.Settings().group(ItemGroup.FOOD));
-    public static final Item PEELED_BANANA = new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(5).saturationModifier(2.5F).build()));
+    public static final Item PEELED_BANANA = new BananaItem(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(5).saturationModifier(2.5F).build()));
+    public static final Item BANANA_PEEL = new BananaItem(new Item.Settings().group(ItemGroup.FOOD));
     
         public static void init() {
             Registry.register(Registry.ITEM, new Identifier("randomadditions", "banana"), BANANA);
             Registry.register(Registry.ITEM, new Identifier("randomadditions", "peeled_banana"), PEELED_BANANA);
+            Registry.register(Registry.ITEM, new Identifier("randomadditions", "banana_peel"), BANANA_PEEL);
     	}
     }
