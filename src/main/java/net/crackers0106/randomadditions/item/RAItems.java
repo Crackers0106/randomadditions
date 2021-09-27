@@ -16,6 +16,6 @@ public class RAItems {
         public static void init() {
             Registry.register(Registry.ITEM, new Identifier("randomadditions", "banana"), BANANA);
             Registry.register(Registry.ITEM, new Identifier("randomadditions", "peeled_banana"), PEELED_BANANA);
-            Registry.register(Registry.ITEM, new Identifier("randomadditions", "banana_peel"), BANANA_PEEL);
+ //           Registry.register(Registry.ITEM, new Identifier("randomadditions", "banana_peel"), BANANA_PEEL);
     	}
     }
