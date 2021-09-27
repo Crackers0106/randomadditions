@@ -16,13 +16,13 @@ public class BananaItem extends Item {
 	public BananaItem(Settings settings) {
 		super(settings);
 	}
-
-	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) { // fires when finished using
-		if (stack.isItemEqual(RAItems.PEELED_BANANA.getDefaultStack()) && !((PlayerEntity) user).getAbilities().creativeMode) { // this is probs unsafe if non players eat food
-			user.dropItem(RAItems.BANANA_PEEL); // theres probs a way to give it directly to player inventory or modify the pickup function for this item to make the player "slip" when they collide
-		}
-		return super.finishUsing(stack, world, user);
-	}
+//
+//	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) { // fires when finished using
+//		if (stack.isItemEqual(RAItems.PEELED_BANANA.getDefaultStack()) && !((PlayerEntity) user).getAbilities().creativeMode) { // this is probs unsafe if non players eat food
+//			user.dropItem(RAItems.BANANA_PEEL); // theres probs a way to give it directly to player inventory or modify the pickup function for this item to make the player "slip" when they collide
+//		}
+//		return super.finishUsing(stack, world, user);
+//	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) { // fires when player right clicks
