@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "randomadditions:block/polished_netherrack",
+    "top": "randomadditions:block/polished_netherrack",
+    "side": "randomadditions:block/polished_netherrack"
+  }
+}
