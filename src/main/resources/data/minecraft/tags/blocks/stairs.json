@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "randomadditions:cut_stone_stairs",
+    "randomadditions:polished_stone_stairs",
+    "randomadditions:polished_netherrack_stairs",
+    "randomadditions:mini_stone_brick_stairs"
+  ]
+}
