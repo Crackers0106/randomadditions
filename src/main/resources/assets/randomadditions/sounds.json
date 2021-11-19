@@ -1,0 +1,10 @@
+{
+  "calm4": {
+    "sounds": [
+      {
+      "name": "randomadditions:records/calm4",
+      "stream": true
+      }
+    ]
+  }
+}

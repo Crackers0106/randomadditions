@@ -329,6 +329,8 @@
     "randomadditions:polished_stone",
     "randomadditions:slated_netherrack",
     "randomadditions:cut_stone",
-    "randomadditions:mini_stone_bricks"
+    "randomadditions:mini_stone_bricks",
+    "randomadditions:mossy_cobbled_deepslate",
+    "randomadditions:mossy_deepslate_bricks"
   ]
 }

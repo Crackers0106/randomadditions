@@ -1,0 +1,15 @@
+{
+	"block.randomadditions.sculk": "Sculk",
+	"block.randomadditions.sculk_vein": "Sculk Vein",
+	"block.randomadditions.sculk_catalyst": "Sculk Catalyst",
+	"block.randomadditions.slated_netherrack": "Slated Netherrack",
+	"block.randomadditions.polished_netherrack": "Polished Netherrack",
+	"block.randomadditions.polished_stone": "Polished Stone",
+	"block.randomadditions.cut_stone": "Cut Stone",
+	"block.randomadditions.mini_stone_bricks": "Mini Stone Bricks",
+	"block.randomadditions.banana_leaves": "Banana Leaves",
+	"item.randomadditions.banana": "Banana",
+	"item.randomadditions.peeled_banana": "Peeled Banana",
+	"item.randomadditions.music_disc_calm4": "Music Disc",
+  	"item.randomadditions.music_disc_calm4.desc": "Notch - Magnetic Circuit"
+}

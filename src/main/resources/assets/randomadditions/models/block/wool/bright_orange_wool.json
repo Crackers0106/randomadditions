@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "randomadditions:block/wool/bright_orange_wool"
+    }
+}

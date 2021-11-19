@@ -9,20 +9,20 @@
     "Crackers0106"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Crackers0106/randomadditions"
   },
 
-  "license": "CC0-1.0",
+  "license": "LGPL-3.0",
   "icon": "assets/randomadditions/icon.png",
 
   "environment": "*",
+
+  "accessWidener": "randomadditions.accesswidener",
   "entrypoints": {
     "main": [
       "net.crackers0106.randomadditions.RandomAdditions"
     ],
     "client": [
-      "net.crackers0106.randomadditions.RandomAdditionsClient"
     ]
   },
   "mixins": [
