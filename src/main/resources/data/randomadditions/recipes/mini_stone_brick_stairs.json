@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "randomadditions:mini_stone_bricks"
+    }
+  },
+  "result": {
+    "item": "randomadditions:mini_stone_brick_stairs",
+    "count": 4
+  }
+}

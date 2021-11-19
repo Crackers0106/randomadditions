@@ -35,8 +35,6 @@ public class RABlocks {
 
     static {
 
-	// RIP readability, at least it's compact
-
     	POLISHED_NETHERRACK = register("polished_netherrack", new Block(FabricBlockSettings.of(Material.STONE)
 					.breakByTool(FabricToolTags.PICKAXES, 1)
 					.requiresTool()

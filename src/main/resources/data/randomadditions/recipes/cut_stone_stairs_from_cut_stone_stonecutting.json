@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "randomadditions:cut_stone"
+  },
+  "result": "randomadditions:cut_stone_stairs",
+  "count": 1
+}
