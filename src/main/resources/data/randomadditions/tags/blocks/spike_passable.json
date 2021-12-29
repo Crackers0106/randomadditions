@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:air",
+    "#minecraft:banners",
+    "#minecraft:buttons",
+    "#minecraft:doors",
+    "#minecraft:fence_gates",
+    "#minecraft:carpets",
+    "#minecraft:pressure_plates",
+    "#minecraft:stairs",
+    "#minecraft:rails",
+    "#minecraft:fire",
+    "#minecraft:leaves",
+    "#minecraft:signs",
+    "#minecraft:snow"
+  ]
+}

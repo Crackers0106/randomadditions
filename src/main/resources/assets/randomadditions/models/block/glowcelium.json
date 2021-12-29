@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "randomadditions:block/glowcelium",
+    "bottom": "minecraft:block/deepslate",
+    "side": "randomadditions:block/glowcelium_side"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "randomadditions:item/hoe_of_destruction"
+  }
+}

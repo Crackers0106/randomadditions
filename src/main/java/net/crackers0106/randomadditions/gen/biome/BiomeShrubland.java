@@ -1,8 +1,6 @@
 package net.crackers0106.randomadditions.gen.biome;
 
 import net.crackers0106.randomadditions.gen.RAFeatures;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.util.Identifier;
@@ -74,7 +72,8 @@ public class BiomeShrubland {
     public static void addFeatures(GenerationSettings.Builder builder) {
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PLAIN_VEGETATION);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, RAFeatures.BUSH_DECORATOR);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, RAFeatures.SHRUBLAND_GRASS);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, RAFeatures.PATCH_GRASS_SHRUBLAND);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, RAFeatures.SCULK_PATCH);
     }
 
     public static void init() {

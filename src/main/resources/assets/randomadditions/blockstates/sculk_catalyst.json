@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "blooming=true": { "model": "randomadditions:block/sculk_catalyst_bloom" },
+    "blooming=false": { "model": "randomadditions:block/sculk_catalyst" }        
+    }
+  }

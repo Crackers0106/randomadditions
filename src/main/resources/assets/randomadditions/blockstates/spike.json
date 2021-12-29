@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "extended=true": { "model": "randomadditions:block/spike_extended" },
+    "extended=false": { "model": "randomadditions:block/spike" }
+    }
+  }

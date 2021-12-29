@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.crackers0106.randomadditions.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "world.features.FoliagePlacerTypeInvoker"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
