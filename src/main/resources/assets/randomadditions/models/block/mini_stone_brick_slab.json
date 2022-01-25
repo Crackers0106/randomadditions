@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "randomadditions:block/mini_stone_bricks",
+    "top": "randomadditions:block/mini_stone_bricks",
+    "side": "randomadditions:block/mini_stone_bricks"
+  }
+}

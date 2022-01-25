@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "randomadditions",
-  "version": "${version}",
+  "version": "0.1.0",
 
   "name": "Random Additions",
   "description": "A mod that just adds random things for fun",
@@ -22,6 +22,9 @@
     "main": [
       "net.crackers0106.randomadditions.RandomAdditions"
     ],
+    "terrablender": [
+      "net.crackers0106.randomadditions.RandomAdditions"
+    ],
     "client": [
     ]
   },
@@ -32,8 +35,8 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16"
+    "minecraft": "1.18.x",
+    "java": ">=17"
   },
   "suggests": {
     "another-mod": "*"

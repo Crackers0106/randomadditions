@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "randomadditions:mossy_cobbled_deepslate_wall",
+    "randomadditions:polished_netherrack_wall",
+    "randomadditions:polished_stone_wall",
+    "randomadditions:mini_stone_brick_wall",
+    "randomadditions:cut_stone_wall",
+    "randomadditions:mossy_deepslate_brick_wall"
+  ]
+}

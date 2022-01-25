@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:netherrack",
-    "minecraft:magma_block",
     "randomadditions:polished_netherrack",
     "randomadditions:slated_netherrack"
   ]

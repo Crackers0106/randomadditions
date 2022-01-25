@@ -2,9 +2,60 @@
   "calm4": {
     "sounds": [
       {
-      "name": "randomadditions:records/calm4",
-      "stream": true
+        "name": "randomadditions:records/calm4",
+        "stream": true
       }
+    ]
+  },
+  "block.glowcelium.step": {
+    "sounds": [
+      "randomadditions:block/glowcelium/step1",
+      "randomadditions:block/glowcelium/step2",
+      "randomadditions:block/glowcelium/step3",
+      "randomadditions:block/glowcelium/step4",
+      "randomadditions:block/glowcelium/step5",
+      "randomadditions:block/glowcelium/step6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.glowcelium.hit": {
+    "sounds": [
+      "randomadditions:block/glowcelium/step1",
+      "randomadditions:block/glowcelium/step2",
+      "randomadditions:block/glowcelium/step3",
+      "randomadditions:block/glowcelium/step4",
+      "randomadditions:block/glowcelium/step5",
+      "randomadditions:block/glowcelium/step6"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.glowcelium.break": {
+    "sounds": [
+      "randomadditions:block/glowcelium/break1",
+      "randomadditions:block/glowcelium/break2",
+      "randomadditions:block/glowcelium/break3",
+      "randomadditions:block/glowcelium/break4"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.glowcelium.fall": {
+    "sounds": [
+      "randomadditions:block/glowcelium/step1",
+      "randomadditions:block/glowcelium/step2",
+      "randomadditions:block/glowcelium/step3",
+      "randomadditions:block/glowcelium/step4",
+      "randomadditions:block/glowcelium/step5",
+      "randomadditions:block/glowcelium/step6"
+    ]
+  },
+  "block.spike.extend": {
+    "sounds": [
+      "randomadditions:block/spike/spike_extend"
+    ]
+  },
+  "block.spike.retract": {
+    "sounds": [
+      "randomadditions:block/spike/spike_retract"
     ]
   }
 }

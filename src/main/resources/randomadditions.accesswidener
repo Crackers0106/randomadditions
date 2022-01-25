@@ -1,3 +1,6 @@
 accessWidener	v1	named
 accessible    class     net/minecraft/world/gen/feature/ConfiguredFeatures$Decorators
 accessible    class     net/minecraft/block/SaplingBlock$SaplingBlock
+accessible    class     net/minecraft/world/gen/stateprovider/SimpleBlockStateProvider$SimpleBlockStateProvider
+accessible    method    net/minecraft/world/gen/feature/VegetationConfiguredFeatures createRandomPatchFeatureConfig (Lnet/minecraft/world/gen/stateprovider/BlockStateProvider;I)Lnet/minecraft/world/gen/feature/RandomPatchFeatureConfig;
+accessible    method    net/minecraft/world/gen/feature/VegetationPlacedFeatures modifiersWithChance (ILnet/minecraft/world/gen/decorator/PlacementModifier;)Ljava/util/List;

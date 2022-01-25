@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "randomadditions:block/polished_netherrack_slab"
+    },
+    "type=double": {
+      "model": "randomadditions:block/polished_netherrack"
+    },
+    "type=top": {
+      "model": "randomadditions:block/polished_netherrack_slab_top"
+    }
+  }
+}

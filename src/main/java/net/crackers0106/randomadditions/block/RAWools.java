@@ -1,23 +1,15 @@
 package net.crackers0106.randomadditions.block;
 
+import net.crackers0106.randomadditions.RandomAdditions;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.GlowLichenBlock;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.MapColor;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.BlockView;
-import net.crackers0106.randomadditions.RandomAdditions;
 
 public class RAWools {
 
@@ -39,79 +31,66 @@ public class RAWools {
     static {
 
         BRIGHT_RED = register("bright_red_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         BRIGHT_ORANGE = register("bright_orange_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         BRIGHT_YELLOW = register("bright_yellow_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         CHARTREUSE = register("chartreuse_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         BRIGHT_LIME = register("bright_lime_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         SPRING_GREEN = register("spring_green_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         BRIGHT_CYAN = register("bright_cyan_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         CAPRI = register("capri_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         ULTRAMARINE = register("ultramarine_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         VIOLET = register("violet_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         BRIGHT_PURPLE = register("bright_purple_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         MAGENTA = register("magenta_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
         ROSE = register("rose_wool", new Block(FabricBlockSettings.of(Material.WOOL)
-                        .breakByTool(FabricToolTags.SHEARS)
                         .strength(0.8F)
                         .sounds(BlockSoundGroup.WOOL)),
                 new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));

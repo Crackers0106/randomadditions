@@ -5,14 +5,12 @@ import net.crackers0106.randomadditions.item.armor.materials.CopperArmorMaterial
 import net.crackers0106.randomadditions.item.tools.RAAxe;
 import net.crackers0106.randomadditions.item.tools.RAHoe;
 import net.crackers0106.randomadditions.item.tools.RAPickaxe;
-import net.crackers0106.randomadditions.item.tools.RAShovel;
+import net.crackers0106.randomadditions.item.tools.materials.AmethystToolMaterial;
 import net.crackers0106.randomadditions.item.tools.materials.CopperToolMaterial;
 import net.crackers0106.randomadditions.item.tools.materials.DeathHoeMaterial;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.block.Blocks;
+import net.crackers0106.randomadditions.util.RASoundEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
@@ -29,6 +27,7 @@ public class RAItems {
     public static final ShovelItem COPPER_SHOVEL;
     public static final SwordItem COPPER_SWORD;
 
+    public static final RAPickaxe AMETHYST_PICKAXE;
     public static final ArmorMaterial COPPER_ARMOR_MATERIAL = new CopperArmorMaterial();
 
     public static final Item COPPER_HELMET;
@@ -41,12 +40,13 @@ public class RAItems {
         BANANA = register("banana", new BananaItem(new Item.Settings().group(ItemGroup.FOOD)));
         PEELED_BANANA = register("peeled_banana", new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(5).saturationModifier(2.5F).build())));
 
-        CALM4_DISC = register("music_disc_calm4", new AbstractDiscItem(14, RandomAdditions.CALM4_SOUND_EVENT, new Item.Settings().rarity(Rarity.RARE).maxCount(1).group(ItemGroup.MISC)));
+        CALM4_DISC = register("music_disc_calm4", new AbstractDiscItem(14, RASoundEvents.MUSIC_DISC_CALM4, new Item.Settings().rarity(Rarity.RARE).maxCount(1).group(ItemGroup.MISC)));
 
     // Pickaxes
 
         COPPER_PICKAXE = register("copper_pickaxe", new RAPickaxe(CopperToolMaterial.INSTANCE, 1, -2.8F, new Item.Settings().group(ItemGroup.TOOLS)));
-    // Shovels
+        AMETHYST_PICKAXE = register("amethyst_pickaxe", new RAPickaxe(AmethystToolMaterial.INSTANCE, 1, -2.8F, new Item.Settings().group(ItemGroup.TOOLS)));
+        // Shovels
 
         COPPER_SHOVEL = register("copper_shovel", new ShovelItem(CopperToolMaterial.INSTANCE, 1.5F, -3.0F, new Item.Settings().group(ItemGroup.TOOLS)));
     // Swords

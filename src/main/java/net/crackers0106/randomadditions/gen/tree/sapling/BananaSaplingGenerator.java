@@ -1,6 +1,6 @@
 package net.crackers0106.randomadditions.gen.tree.sapling;
 
-import net.crackers0106.randomadditions.gen.RAFeatures;
+import net.crackers0106.randomadditions.gen.configuredfeatures.RATreeConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
@@ -12,6 +12,6 @@ public class BananaSaplingGenerator extends SaplingGenerator {
 
     @Override
     protected @Nullable ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bees) {
-        return RAFeatures.BANANA_TREE;
+        return RATreeConfiguredFeatures.BANANA;
     }
 }

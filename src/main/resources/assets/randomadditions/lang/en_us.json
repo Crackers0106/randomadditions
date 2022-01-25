@@ -3,26 +3,66 @@
 	"block.randomadditions.sculk_vein": "Sculk Vein",
 	"block.randomadditions.sculk_catalyst": "Sculk Catalyst",
 	"block.randomadditions.slated_netherrack": "Slated Netherrack",
+
 	"block.randomadditions.polished_netherrack": "Polished Netherrack",
-	"block.randomadditions.polished_stone": "Polished Stone",
-	"block.randomadditions.cut_stone": "Cut Stone",
-	"block.randomadditions.mini_stone_bricks": "Mini Stone Bricks",
 	"block.randomadditions.polished_netherrack_stairs": "Polished Netherrack Stairs",
+	"block.randomadditions.polished_netherrack_slab": "Polished Netherrack Slab",
+	"block.randomadditions.polished_netherrack_wall": "Polished Netherrack Wall",
+
+	"block.randomadditions.polished_stone": "Polished Stone",
 	"block.randomadditions.polished_stone_stairs": "Polished Stone Stairs",
+	"block.randomadditions.polished_stone_slab": "Polished Stone Slab",
+	"block.randomadditions.polished_stone_wall": "Polished Stone Wall",
+
+	"block.randomadditions.cut_stone": "Cut Stone",
 	"block.randomadditions.cut_stone_stairs": "Cut Stone Stairs",
+	"block.randomadditions.cut_stone_slab": "Cut Stone Slab",
+	"block.randomadditions.cut_stone_wall": "Cut Stone Wall",
+
+	"block.randomadditions.mini_stone_bricks": "Mini Stone Bricks",
 	"block.randomadditions.mini_stone_brick_stairs": "Mini Stone Brick Stairs",
+	"block.randomadditions.mini_stone_brick_slab": "Mini Stone Brick Slab",
+	"block.randomadditions.mini_stone_brick_wall": "Mini Stone Brick Wall",
+
+	"block.randomadditions.mossy_cobbled_deepslate": "Mossy Cobbled Deepslate",
+	"block.randomadditions.mossy_cobbled_deepslate_stairs": "Mossy Cobbled Deepslate Stairs",
+	"block.randomadditions.mossy_cobbled_deepslate_slab": "Mossy Cobbled Deepslate Slab",
+	"block.randomadditions.mossy_cobbled_deepslate_wall": "Mossy Cobbled Deepslate Wall",
+
+	"block.randomadditions.mossy_deepslate_bricks": "Mossy Deepslate Bricks",
+	"block.randomadditions.mossy_deepslate_brick_stairs": "Mossy Deepslate Brick Stairs",
+	"block.randomadditions.mossy_deepslate_brick_slab": "Mossy Deepslate Brick Slab",
+	"block.randomadditions.mossy_deepslate_brick_wall": "Mossy Deepslate Brick Wall",
+
 	"block.randomadditions.banana_leaves": "Banana Leaves",
 	"block.randomadditions.banana_sapling": "Banana Sapling",
 	"block.randomadditions.rose": "Rose",
-	"block.randomadditions.mossy_cobbled_deepslate": "Mossy Cobbled Deepslate",
-	"block.randomadditions.mossy_deepslate_bricks": "Mossy Deepslate Bricks",
 	"block.randomadditions.spike": "Spike",
+
 	"block.randomadditions.glowshroom": "Glowshroom",
+	"block.randomadditions.glowshroom_block": "Glowshroom Block",
+	"block.randomadditions.glowshroom_stem": "Glowshroom Stem",
 	"block.randomadditions.glowcelium": "Glowcelium",
+
+	"block.randomadditions.bright_red_wool": "Bright Red Wool",
+	"block.randomadditions.bright_orange_wool": "Bright Orange Wool",
+	"block.randomadditions.bright_yellow_wool": "Bright Yellow Wool",
+	"block.randomadditions.chartreuse_wool": "Chartreuse Wool",
+	"block.randomadditions.bright_lime_wool": "Bright Lime Wool",
+	"block.randomadditions.spring_green_wool": "Spring Green Wool",
+	"block.randomadditions.bright_cyan_wool": "Bright Cyan Wool",
+	"block.randomadditions.capri_wool": "Capri Wool",
+	"block.randomadditions.ultramarine_wool": "Ultramarine Wool",
+	"block.randomadditions.violet_wool": "Violet Wool",
+	"block.randomadditions.bright_purple_wool": "Bright Purple Wool",
+	"block.randomadditions.magenta_wool": "Magenta Wool",
+	"block.randomadditions.rose_wool": "Rose Wool",
+
 	"item.randomadditions.banana": "Banana",
 	"item.randomadditions.peeled_banana": "Peeled Banana",
 	"item.randomadditions.music_disc_calm4": "Music Disc",
   	"item.randomadditions.music_disc_calm4.desc": "Notch - Magnetic Circuit",
+
 	"item.randomadditions.hoe_of_destruction": "Hoe of Destruction",
 	"item.randomadditions.copper_pickaxe": "Copper Pickaxe",
 	"item.randomadditions.copper_shovel": "Copper Shovel",
@@ -33,7 +73,11 @@
 	"item.randomadditions.copper_chestplate": "Copper Chestplate",
 	"item.randomadditions.copper_leggings": "Copper Leggings",
 	"item.randomadditions.copper_boots": "Copper Boots",
+	"item.randomadditions.amethyst_pickaxe": "Amethyst Pickaxe",
+
 	"biome.randomadditions.rainforest": "Rainforest",
 	"biome.randomadditions.shrubland": "Shrubland",
-	"death.attack.spikes": "%1$s was impaled on a spike"
+
+	"death.attack.spikes": "%1$s was impaled on a spike",
+	"itemGroup.randomadditions.random_additions": "Random Additions"
 }
