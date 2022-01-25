@@ -2,7 +2,6 @@ package net.crackers0106.randomadditions.util;
 
 import net.crackers0106.randomadditions.block.RABlocks;
 import net.crackers0106.randomadditions.block.RAWools;
-import net.crackers0106.randomadditions.block.RASculkBlocks;
 import net.crackers0106.randomadditions.item.RAItems;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
