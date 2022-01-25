@@ -2,7 +2,6 @@ package net.crackers0106.randomadditions.util;
 
 import net.crackers0106.randomadditions.block.RABlocks;
 import net.crackers0106.randomadditions.block.RAWools;
-import net.crackers0106.randomadditions.block.RASculkBlocks;
 import net.crackers0106.randomadditions.item.RAItems;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
@@ -40,7 +39,6 @@ public class Instance {
 
             BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.BANANA_SAPLING, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.GLOWSHROOM, RenderLayer.getCutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(RASculkBlocks.SCULK_VEIN, RenderLayer.getCutout());
 
             BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.SPIKE, RenderLayer.getCutout());
 
