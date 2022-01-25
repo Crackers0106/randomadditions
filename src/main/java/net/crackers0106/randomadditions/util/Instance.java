@@ -40,7 +40,6 @@ public class Instance {
 
             BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.BANANA_SAPLING, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.GLOWSHROOM, RenderLayer.getCutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(RASculkBlocks.SCULK_VEIN, RenderLayer.getCutout());
 
             BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.SPIKE, RenderLayer.getCutout());
 
