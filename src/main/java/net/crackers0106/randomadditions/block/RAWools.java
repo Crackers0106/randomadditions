@@ -2,14 +2,14 @@ package net.crackers0106.randomadditions.block;
 
 import net.crackers0106.randomadditions.RandomAdditions;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Material;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
 
 public class RAWools {
 
@@ -32,77 +32,77 @@ public class RAWools {
 
         BRIGHT_RED = register("bright_red_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         BRIGHT_ORANGE = register("bright_orange_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         BRIGHT_YELLOW = register("bright_yellow_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         CHARTREUSE = register("chartreuse_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         BRIGHT_LIME = register("bright_lime_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         SPRING_GREEN = register("spring_green_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         BRIGHT_CYAN = register("bright_cyan_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         CAPRI = register("capri_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         ULTRAMARINE = register("ultramarine_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         VIOLET = register("violet_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         BRIGHT_PURPLE = register("bright_purple_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         MAGENTA = register("magenta_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
         ROSE = register("rose_wool", new Block(FabricBlockSettings.of(Material.WOOL)
                         .strength(0.8F)
-                        .sounds(BlockSoundGroup.WOOL)),
-                new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+                        .sound(SoundType.WOOL)),
+                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
 
     }
 
-    private static Block register(String id, Block block, Item.Settings settings) {
+    private static Block register(String id, Block block, Item.Properties settings) {
         return register(id, block, true, settings);
     }
 
-    private static Block register(String id, Block block, boolean registerAsBlockItem, Item.Settings settings) {
-        Identifier trueId = RandomAdditions.locate(id);
+    private static Block register(String id, Block block, boolean registerAsBlockItem, Item.Properties settings) {
+        ResourceLocation trueId = RandomAdditions.locate(id);
         Registry.register(Registry.BLOCK, trueId, block);
         if (registerAsBlockItem) Registry.register(Registry.ITEM, trueId, new BlockItem(block, settings));
         return block;
