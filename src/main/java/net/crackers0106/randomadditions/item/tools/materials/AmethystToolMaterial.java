@@ -1,41 +1,41 @@
 package net.crackers0106.randomadditions.item.tools.materials;
 
-import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
-public class AmethystToolMaterial implements ToolMaterial {
+public class AmethystToolMaterial implements Tier {
 
     public static final AmethystToolMaterial INSTANCE = new AmethystToolMaterial();
 
     @Override
-    public int getDurability() {
+    public int getUses() {
         return 550;
     }
 
     @Override
-    public float getMiningSpeedMultiplier() {
+    public float getSpeed() {
         return 6.5F;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return 2.5F;
     }
 
     @Override
-    public int getMiningLevel() {
+    public int getLevel() {
         return 3;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return 18;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.COPPER_INGOT);
+        return Ingredient.of(Items.COPPER_INGOT);
     }
 
 }

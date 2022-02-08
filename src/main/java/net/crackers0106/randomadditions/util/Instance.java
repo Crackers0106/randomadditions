@@ -6,7 +6,7 @@ import net.crackers0106.randomadditions.item.RAItems;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.renderer.RenderType;
 
 public class Instance {
 
@@ -34,13 +34,13 @@ public class Instance {
             FlammableBlockRegistry.getDefaultInstance().add(RABlocks.BANANA_SAPLING, 60, 100);
 
         // Block render layers
-            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.ROSE, RenderLayer.getCutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.POTTED_ROSE, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.ROSE, RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.POTTED_ROSE, RenderType.cutout());
 
-            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.BANANA_SAPLING, RenderLayer.getCutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.GLOWSHROOM, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.BANANA_SAPLING, RenderType.cutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.GLOWSHROOM, RenderType.cutout());
 
-            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.SPIKE, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(RABlocks.SPIKE, RenderType.cutout());
 
         // Compostable
             CompostingChanceRegistry.INSTANCE.add(RABlocks.ROSE, 0.65f);

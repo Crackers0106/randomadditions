@@ -1,9 +1,9 @@
 package net.crackers0106.randomadditions.util;
 
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.world.level.block.SoundType;
 
 public class RABlockSoundGroup {
-    public static final BlockSoundGroup GLOWCELIUM = new BlockSoundGroup(
+    public static final SoundType GLOWCELIUM = new SoundType(
             1.0F,
             1.0F,
             RASoundEvents.BLOCK_GLOWCELIUM_BREAK,

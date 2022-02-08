@@ -1,8 +1,8 @@
 package net.crackers0106.randomadditions.block.decorative;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SlabBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class RASlabs extends SlabBlock {
-    public RASlabs(BlockState defaultState, Settings settings) { super(settings); }
+    public RASlabs(BlockState defaultState, Properties settings) { super(settings); }
 }

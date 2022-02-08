@@ -1,10 +1,10 @@
 package net.crackers0106.randomadditions.block.decorative;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.StairsBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class RAStairs extends StairsBlock {
-    public RAStairs(BlockState state, Settings settings) {
+public class RAStairs extends StairBlock {
+    public RAStairs(BlockState state, Properties settings) {
         super(state, settings);
     }
 }

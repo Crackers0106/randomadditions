@@ -1,8 +1,8 @@
 package net.crackers0106.randomadditions.util;
 
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 
 public class RASoundEvents {
 
@@ -18,7 +18,7 @@ public class RASoundEvents {
     public static final SoundEvent BLOCK_SPIKE_RETRACT = register("randomadditions:block.spike.retract");
 
     private static SoundEvent register(String id) {
-        return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(new Identifier(id)));
+        return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(new ResourceLocation(id)));
     }
 
     public static void init() {

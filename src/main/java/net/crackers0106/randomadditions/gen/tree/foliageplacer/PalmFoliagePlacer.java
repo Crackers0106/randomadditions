@@ -2,17 +2,16 @@ package net.crackers0106.randomadditions.gen.tree.foliageplacer;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3i;
-import net.minecraft.util.math.intprovider.IntProvider;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraft.world.gen.foliage.FoliagePlacer;
-import net.minecraft.world.gen.foliage.FoliagePlacerType;
-
 import java.util.Random;
 import java.util.function.BiConsumer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
 // Shamelessly stolen from Barren Isles
 public class PalmFoliagePlacer extends FoliagePlacer {
@@ -22,8 +21,8 @@ public class PalmFoliagePlacer extends FoliagePlacer {
     //
     // For an example of creating your own type of codec, see the IntProvider.createValidatingCodec method's source
     public static final Codec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.create(instance ->
-            fillFoliagePlacerFields(instance)
-                    .and(IntProvider.createValidatingCodec(1, 512).fieldOf("foliage_height").forGetter(PalmFoliagePlacer::getFoliageHeight)).apply(instance, PalmFoliagePlacer::new));
+            foliagePlacerParts(instance)
+                    .and(IntProvider.codec(1, 512).fieldOf("foliage_height").forGetter(PalmFoliagePlacer::getFoliageHeight)).apply(instance, PalmFoliagePlacer::new));
 
     private final IntProvider foliageHeight;
 
@@ -38,60 +37,60 @@ public class PalmFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected FoliagePlacerType<?> getType() {
+    protected FoliagePlacerType<?> type() {
         return RAFoliagePlacers.PALM_FOLIAGE_PLACER;
     }
 
     @Override
-    protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, TreeFeatureConfig config, int trunkHeight, TreeNode treeNode, int foliageHeight, int radius, int offset) {
-        BlockPos.Mutable center = treeNode.getCenter().mutableCopy();
+    protected void createFoliage(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, Random random, TreeConfiguration config, int trunkHeight, FoliageAttachment treeNode, int foliageHeight, int radius, int offset) {
+        BlockPos.MutableBlockPos center = treeNode.pos().mutable();
 
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 0, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 0, 0))));
 
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(1, 0, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(1, -1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(2, -1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(2, -2, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(1, 1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(2, 1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(3, 1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(3, 0, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(1, 0, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(1, -1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(2, -1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(2, -2, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(1, 1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(2, 1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(3, 1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(3, 0, 0))));
 
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-1, 0, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-1, -1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-2, -1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-2, -2, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-1, 1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-2, 1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-3, 1, 0))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(-3, 0, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-1, 0, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-1, -1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-2, -1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-2, -2, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-1, 1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-2, 1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-3, 1, 0))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(-3, 0, 0))));
 
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 0, 1))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, -1, 1))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, -1, 2))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, -2, 2))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 1, 1))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 1, 2))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 1, 3))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 0, 3))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 0, 1))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, -1, 1))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, -1, 2))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, -2, 2))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 1, 1))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 1, 2))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 1, 3))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 0, 3))));
 
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 0, -1))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, -1, -1))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, -1, -2))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, -2, -2))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 1, -1))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 1, -2))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 1, -3))));
-        placeFoliageBlock(world, replacer, random, config, new BlockPos(center.add(new Vec3i(0, 0, -3))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 0, -1))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, -1, -1))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, -1, -2))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, -2, -2))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 1, -1))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 1, -2))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 1, -3))));
+        tryPlaceLeaf(world, replacer, random, config, new BlockPos(center.offset(new Vec3i(0, 0, -3))));
     }
 
     @Override
-    public int getRandomHeight(Random random, int trunkHeight, TreeFeatureConfig config) {
-        return foliageHeight.get(random);
+    public int foliageHeight(Random random, int trunkHeight, TreeConfiguration config) {
+        return foliageHeight.sample(random);
     }
 
     @Override
-    protected boolean isInvalidForLeaves(Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
+    protected boolean shouldSkipLocation(Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
         return false;
     }
 }

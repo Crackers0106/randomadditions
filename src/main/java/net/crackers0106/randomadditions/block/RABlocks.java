@@ -12,18 +12,27 @@ import net.crackers0106.randomadditions.item.RAItemGroup;
 import net.crackers0106.randomadditions.util.RABlockSoundGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.BlockView;
 
-import static net.minecraft.block.Blocks.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.HugeMushroomBlock;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.MushroomBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+
+import static net.minecraft.world.level.block.Blocks.*;
 
 public class RABlocks {
 
@@ -65,120 +74,120 @@ public class RABlocks {
 
     static {
 
-		SLATED_NETHERRACK = registerWithItem("slated_netherrack", new Block(FabricBlockSettings.copyOf(NETHERRACK).requiresTool().strength(0.6F)), buildingBlock());
+		SLATED_NETHERRACK = registerWithItem("slated_netherrack", new Block(FabricBlockSettings.copyOf(NETHERRACK).requiresCorrectToolForDrops().strength(0.6F)), buildingBlock());
 
 		POLISHED_NETHERRACK = registerWithItem("polished_netherrack", new Block(FabricBlockSettings.copyOf(NETHERRACK)), buildingBlock());
-		POLISHED_NETHERRACK_STAIRS = registerWithItem("polished_netherrack_stairs", new RAStairs(NETHERRACK.getDefaultState(), Block.Settings.copy(NETHERRACK)), buildingBlock());
-		POLISHED_NETHERRACK_SLAB = registerWithItem("polished_netherrack_slab", new RASlabs(NETHERRACK.getDefaultState(), Block.Settings.copy(NETHERRACK)), buildingBlock());
-		POLISHED_NETHERRACK_WALL = registerWithItem("polished_netherrack_wall", new RAWalls(NETHERRACK.getDefaultState(), Block.Settings.copy(NETHERRACK)), buildingBlock());
+		POLISHED_NETHERRACK_STAIRS = registerWithItem("polished_netherrack_stairs", new RAStairs(NETHERRACK.defaultBlockState(), FabricBlockSettings.copyOf(NETHERRACK)), buildingBlock());
+		POLISHED_NETHERRACK_SLAB = registerWithItem("polished_netherrack_slab", new RASlabs(NETHERRACK.defaultBlockState(), FabricBlockSettings.copyOf(NETHERRACK)), buildingBlock());
+		POLISHED_NETHERRACK_WALL = registerWithItem("polished_netherrack_wall", new RAWalls(NETHERRACK.defaultBlockState(), FabricBlockSettings.copyOf(NETHERRACK)), buildingBlock());
 
 		CUT_STONE = registerWithItem("cut_stone", new Block(FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
-		CUT_STONE_STAIRS = registerWithItem("cut_stone_stairs", new RAStairs(STONE_BRICKS.getDefaultState(), Block.Settings.copy(STONE_BRICKS)), buildingBlock());
-		CUT_STONE_SLAB = registerWithItem("cut_stone_slab", new RASlabs(COBBLED_DEEPSLATE.getDefaultState(), Block.Settings.copy(COBBLED_DEEPSLATE)), buildingBlock());
-		CUT_STONE_WALL = registerWithItem("cut_stone_wall", new RAWalls(COBBLED_DEEPSLATE.getDefaultState(), Block.Settings.copy(COBBLED_DEEPSLATE)), buildingBlock());
+		CUT_STONE_STAIRS = registerWithItem("cut_stone_stairs", new RAStairs(STONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
+		CUT_STONE_SLAB = registerWithItem("cut_stone_slab", new RASlabs(COBBLED_DEEPSLATE.defaultBlockState(), FabricBlockSettings.copyOf(COBBLED_DEEPSLATE)), buildingBlock());
+		CUT_STONE_WALL = registerWithItem("cut_stone_wall", new RAWalls(COBBLED_DEEPSLATE.defaultBlockState(), FabricBlockSettings.copyOf(COBBLED_DEEPSLATE)), buildingBlock());
 
         POLISHED_STONE = registerWithItem("polished_stone", new Block(FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
-		POLISHED_STONE_STAIRS = registerWithItem("polished_stone_stairs", new RAStairs(STONE_BRICKS.getDefaultState(), Block.Settings.copy(STONE_BRICKS)), buildingBlock());
-		POLISHED_STONE_SLAB = registerWithItem("polished_stone_slab", new RASlabs(STONE_BRICKS.getDefaultState(), Block.Settings.copy(STONE_BRICKS)), buildingBlock());
-		POLISHED_STONE_WALL = registerWithItem("polished_stone_wall", new RAWalls(STONE_BRICKS.getDefaultState(), Block.Settings.copy(STONE_BRICKS)), buildingBlock());
+		POLISHED_STONE_STAIRS = registerWithItem("polished_stone_stairs", new RAStairs(STONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
+		POLISHED_STONE_SLAB = registerWithItem("polished_stone_slab", new RASlabs(STONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
+		POLISHED_STONE_WALL = registerWithItem("polished_stone_wall", new RAWalls(STONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
 
 		MINI_STONE_BRICKS = registerWithItem("mini_stone_bricks", new Block(FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
-		MINI_STONE_BRICK_STAIRS = registerWithItem("mini_stone_brick_stairs", new RAStairs(STONE_BRICKS.getDefaultState(), Block.Settings.copy(STONE_BRICKS)), buildingBlock());
-		MINI_STONE_BRICK_SLAB = registerWithItem("mini_stone_brick_slab", new RASlabs(STONE_BRICKS.getDefaultState(), Block.Settings.copy(STONE_BRICKS)), buildingBlock());
-		MINI_STONE_BRICK_WALL = registerWithItem("mini_stone_brick_wall", new RAWalls(STONE_BRICKS.getDefaultState(), Block.Settings.copy(STONE_BRICKS)), buildingBlock());
+		MINI_STONE_BRICK_STAIRS = registerWithItem("mini_stone_brick_stairs", new RAStairs(STONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
+		MINI_STONE_BRICK_SLAB = registerWithItem("mini_stone_brick_slab", new RASlabs(STONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
+		MINI_STONE_BRICK_WALL = registerWithItem("mini_stone_brick_wall", new RAWalls(STONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(STONE_BRICKS)), buildingBlock());
 
-		MOSSY_COBBLED_DEEPSLATE = registerWithItem("mossy_cobbled_deepslate", new Block(Block.Settings.copy(COBBLED_DEEPSLATE)), buildingBlock());
-		MOSSY_COBBLED_DEEPSLATE_STAIRS = registerWithItem("mossy_cobbled_deepslate_stairs", new RAStairs(COBBLED_DEEPSLATE.getDefaultState(), Block.Settings.copy(COBBLED_DEEPSLATE)), buildingBlock());
-		MOSSY_COBBLED_DEEPSLATE_SLAB = registerWithItem("mossy_cobbled_deepslate_slab", new RASlabs(COBBLED_DEEPSLATE.getDefaultState(), Block.Settings.copy(COBBLED_DEEPSLATE)), buildingBlock());
-		MOSSY_COBBLED_DEEPSLATE_WALL = registerWithItem("mossy_cobbled_deepslate_wall", new RAWalls(COBBLED_DEEPSLATE.getDefaultState(), Block.Settings.copy(COBBLED_DEEPSLATE)), buildingBlock());
+		MOSSY_COBBLED_DEEPSLATE = registerWithItem("mossy_cobbled_deepslate", new Block(FabricBlockSettings.copyOf(COBBLED_DEEPSLATE)), buildingBlock());
+		MOSSY_COBBLED_DEEPSLATE_STAIRS = registerWithItem("mossy_cobbled_deepslate_stairs", new RAStairs(COBBLED_DEEPSLATE.defaultBlockState(), FabricBlockSettings.copyOf(COBBLED_DEEPSLATE)), buildingBlock());
+		MOSSY_COBBLED_DEEPSLATE_SLAB = registerWithItem("mossy_cobbled_deepslate_slab", new RASlabs(COBBLED_DEEPSLATE.defaultBlockState(), FabricBlockSettings.copyOf(COBBLED_DEEPSLATE)), buildingBlock());
+		MOSSY_COBBLED_DEEPSLATE_WALL = registerWithItem("mossy_cobbled_deepslate_wall", new RAWalls(COBBLED_DEEPSLATE.defaultBlockState(), FabricBlockSettings.copyOf(COBBLED_DEEPSLATE)), buildingBlock());
 
 		MOSSY_DEEPSLATE_BRICKS = registerWithItem("mossy_deepslate_bricks", new Block(FabricBlockSettings.copyOf(DEEPSLATE_BRICKS)), buildingBlock());
-		MOSSY_DEEPSLATE_BRICK_STAIRS = registerWithItem("mossy_deepslate_brick_stairs", new RAStairs(DEEPSLATE_BRICKS.getDefaultState(), Block.Settings.copy(DEEPSLATE_BRICKS)), buildingBlock());
-		MOSSY_DEEPSLATE_BRICK_SLAB = registerWithItem("mossy_deepslate_brick_slab", new RASlabs(DEEPSLATE_BRICKS.getDefaultState(), Block.Settings.copy(DEEPSLATE_BRICKS)), buildingBlock());
-		MOSSY_DEEPSLATE_BRICK_WALL = registerWithItem("mossy_deepslate_brick_wall", new RAWalls(DEEPSLATE_BRICKS.getDefaultState(), Block.Settings.copy(DEEPSLATE_BRICKS)), buildingBlock());
+		MOSSY_DEEPSLATE_BRICK_STAIRS = registerWithItem("mossy_deepslate_brick_stairs", new RAStairs(DEEPSLATE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(DEEPSLATE_BRICKS)), buildingBlock());
+		MOSSY_DEEPSLATE_BRICK_SLAB = registerWithItem("mossy_deepslate_brick_slab", new RASlabs(DEEPSLATE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(DEEPSLATE_BRICKS)), buildingBlock());
+		MOSSY_DEEPSLATE_BRICK_WALL = registerWithItem("mossy_deepslate_brick_wall", new RAWalls(DEEPSLATE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(DEEPSLATE_BRICKS)), buildingBlock());
 
 		SPIKE = registerWithItem("spike", new RASpike(FabricBlockSettings.of(Material.STONE)
 				.strength(0.6F, 1.5F)
-				.requiresTool()),
+				.requiresCorrectToolForDrops()),
 				buildingBlock());
 
-		GLOWSHROOM = registerWithItem("glowshroom", new MushroomPlantBlock(FabricBlockSettings.of(Material.PLANT)
-					.noCollision()
-					.ticksRandomly()
-					.breakInstantly()
-					.sounds(BlockSoundGroup.GRASS)
-					.luminance(state -> 7)
-					.emissiveLighting(RABlocks::always)
-					.postProcess(RABlocks::always),
+		GLOWSHROOM = registerWithItem("glowshroom", new MushroomBlock(FabricBlockSettings.of(Material.PLANT)
+					.noCollission()
+					.randomTicks()
+					.instabreak()
+					.sound(SoundType.GRASS)
+					.lightLevel(state -> 7)
+					.emissiveRendering(RABlocks::always)
+					.hasPostProcess(RABlocks::always),
 				() -> RATreeConfiguredFeatures.HUGE_GLOWSHROOM),
 				buildingBlock());
 
-		GLOWCELIUM = registerWithItem("glowcelium", new GlowceliumBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC)
-				.ticksRandomly()
+		GLOWCELIUM = registerWithItem("glowcelium", new GlowceliumBlock(FabricBlockSettings.of(Material.GRASS)
+				.randomTicks()
 				.strength(3.0F, 6.0F)
-				.sounds(RABlockSoundGroup.GLOWCELIUM)
-				.luminance(state -> 4)
-				.requiresTool()),
+				.sound(RABlockSoundGroup.GLOWCELIUM)
+				.lightLevel(state -> 4)
+				.requiresCorrectToolForDrops()),
 				buildingBlock());
 
-		GLOWSHROOM_BLOCK = registerWithItem("glowshroom_block", new MushroomBlock(FabricBlockSettings.of(Material.WOOD)
+		GLOWSHROOM_BLOCK = registerWithItem("glowshroom_block", new HugeMushroomBlock(FabricBlockSettings.of(Material.WOOD)
 				.strength(0.2F)
-				.sounds(BlockSoundGroup.WOOD)
-				.luminance(state -> 4)
-				.emissiveLighting(RABlocks::always)
-				.postProcess(RABlocks::always)),
+				.sound(SoundType.WOOD)
+				.lightLevel(state -> 4)
+				.emissiveRendering(RABlocks::always)
+				.hasPostProcess(RABlocks::always)),
 				buildingBlock());
 
-		GLOWSHROOM_STEM = registerWithItem("glowshroom_stem", new MushroomBlock(FabricBlockSettings.copyOf(GLOWSHROOM_BLOCK)
-				.emissiveLighting(RABlocks::always)
-				.postProcess(RABlocks::always)),
+		GLOWSHROOM_STEM = registerWithItem("glowshroom_stem", new HugeMushroomBlock(FabricBlockSettings.copyOf(GLOWSHROOM_BLOCK)
+				.emissiveRendering(RABlocks::always)
+				.hasPostProcess(RABlocks::always)),
 				buildingBlock());
 
 	// Plants
 
         BANANA_LEAVES = registerWithItem("banana_leaves", createLeavesBlock(), buildingBlock());
-		BANANA_SAPLING = registerWithItem("banana_sapling", new RASaplingBlock(new BananaSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), buildingBlock());
+		BANANA_SAPLING = registerWithItem("banana_sapling", new RASaplingBlock(new BananaSaplingGenerator(), BlockBehaviour.Properties.copy(OAK_SAPLING)), buildingBlock());
 		POTTED_BANANA_SAPLING = register("potted_banana_sapling", createPottedBlock(BANANA_SAPLING));
 
-		ROSE = registerWithItem("rose", new FlowerBlock(StatusEffects.NIGHT_VISION, 5, AbstractBlock.Settings.of(Material.PLANT)
-				.noCollision()
-				.breakInstantly()
-				.sounds(BlockSoundGroup.GRASS)),
+		ROSE = registerWithItem("rose", new FlowerBlock(MobEffects.NIGHT_VISION, 5, BlockBehaviour.Properties.of(Material.PLANT)
+				.noCollission()
+				.instabreak()
+				.sound(SoundType.GRASS)),
 				buildingBlock());
 
 		POTTED_ROSE = register("potted_rose", createPottedBlock(ROSE));
 	}
 
-	private static Item.Settings buildingBlock() {
-		return new FabricItemSettings().group(RAItemGroup.RANDOM_ADDITIONS);
+	private static Item.Properties buildingBlock() {
+		return new FabricItemSettings().tab(RAItemGroup.RANDOM_ADDITIONS);
 	}
 
 	private static Block register(String id, Block block) {
 		return Registry.register(Registry.BLOCK, RandomAdditions.locate(id), block);
 	}
 
-	private static Block registerWithItem(String id, Block block, Item.Settings settings) {
-    	Identifier trueId = RandomAdditions.locate(id);
+	private static Block registerWithItem(String id, Block block, Item.Properties settings) {
+    	ResourceLocation trueId = RandomAdditions.locate(id);
     	Registry.register(Registry.ITEM, trueId, new BlockItem(block, settings));
     	return Registry.register(Registry.BLOCK, trueId, block);
 	}
 
-	private static Boolean canSpawnOnLeaves(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
+	private static Boolean canSpawnOnLeaves(BlockState state, BlockGetter world, BlockPos pos, EntityType<?> type) {
 		return type == EntityType.OCELOT || type == EntityType.PARROT;
 	}
 
 	private static LeavesBlock createLeavesBlock() {
-		return new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(RABlocks::canSpawnOnLeaves).suffocates(RABlocks::never).blockVision(RABlocks::never));
+		return new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(RABlocks::canSpawnOnLeaves).isSuffocating(RABlocks::never).isViewBlocking(RABlocks::never));
 	}
 
 	private static FlowerPotBlock createPottedBlock(Block sourceBlock) {
-		return new FlowerPotBlock(sourceBlock, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+		return new FlowerPotBlock(sourceBlock, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion());
 	}
 
-	public static boolean never(BlockState blockState, BlockView blockView, BlockPos blockPos) {
+	public static boolean never(BlockState blockState, BlockGetter blockView, BlockPos blockPos) {
     	return false;
 	}
-		public static boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos) {
+		public static boolean always(BlockState blockState, BlockGetter blockView, BlockPos blockPos) {
 			return true;
 	}
 

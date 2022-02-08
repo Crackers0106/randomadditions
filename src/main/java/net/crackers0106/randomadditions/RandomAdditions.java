@@ -10,7 +10,7 @@ import net.crackers0106.randomadditions.item.RAItems;
 import net.crackers0106.randomadditions.util.Instance;
 import net.crackers0106.randomadditions.util.RASoundEvents;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import terrablender.api.TerraBlenderApi;
@@ -45,7 +45,7 @@ public class RandomAdditions implements ModInitializer, TerraBlenderApi {
 //		BiomeProviders.register(new RABiomeProvider(new Identifier(MOD_ID, "biome_provider"), 0));
 //	}
 
-	public static Identifier locate(String location) {
-		return new Identifier(MOD_ID, location);
+	public static ResourceLocation locate(String location) {
+		return new ResourceLocation(MOD_ID, location);
 	}
 }
