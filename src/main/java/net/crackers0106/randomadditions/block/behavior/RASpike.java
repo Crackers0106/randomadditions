@@ -1,5 +1,6 @@
 package net.crackers0106.randomadditions.block.behavior;
 
+import net.crackers0106.randomadditions.RandomAdditions;
 import net.crackers0106.randomadditions.block.RABlockTags;
 import net.crackers0106.randomadditions.util.RADamageSource;
 import net.crackers0106.randomadditions.util.RASoundEvents;
@@ -21,7 +22,7 @@ public class RASpike extends Block {
 
     public RASpike(Properties settings) {
         super(settings);
-        registerDefaultState(getStateDefinition().any().setValue(EXTENDED, false));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(EXTENDED, false));
     }
 
     @Override @Nullable
@@ -31,26 +32,24 @@ public class RASpike extends Block {
 
     @Override
     public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
-        if (!world.isClientSide) {
+        if (this.extended(state) != (this.powered(world, pos) && this.isPassable(world, pos)))  {
+            world.playSound(null, pos, RASoundEvents.BLOCK_SPIKE_EXTEND, SoundSource.BLOCKS, 0.5F, 1.0F);
+            world.setBlock(pos, state.cycle(EXTENDED), 2);
+            RandomAdditions.LOGGER.info("Spike Extended");
+        }
 
-            if (extended(state) != (powered(world, pos) && isPassable(world, pos))) {
-                world.playSound(null, pos, RASoundEvents.BLOCK_SPIKE_EXTEND, SoundSource.BLOCKS, 0.5F, 1.0F);
-                world.setBlock(pos, state.cycle(EXTENDED), 2);
-//                System.out.println("Spike Extended");
-
-            } if (extended(state) && (!powered(world, pos) || !isPassable(world, pos))) {
-                world.playSound(null, pos, RASoundEvents.BLOCK_SPIKE_RETRACT, SoundSource.BLOCKS, 0.5F, 1.0F);
-                world.setBlockAndUpdate(pos, state.setValue(EXTENDED, Boolean.FALSE));
-//                System.out.println("Spike Retracted");
-            }
+        if (this.extended(state) && (!this.powered(world, pos) || !this.isPassable(world, pos))) {
+            world.playSound(null, pos, RASoundEvents.BLOCK_SPIKE_RETRACT, SoundSource.BLOCKS, 0.5F, 1.0F);
+            world.setBlockAndUpdate(pos, state.setValue(EXTENDED, Boolean.FALSE));
+            RandomAdditions.LOGGER.info("Spike Retracted");
         }
     }
 
+    @Override
     public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
         if (state.getValue(EXTENDED) && entity instanceof LivingEntity) {
             entity.hurt(RADamageSource.SPIKES, 2.0F);
         }
-
         super.entityInside(state, world, pos, entity);
     }
 
@@ -75,4 +74,4 @@ public class RASpike extends Block {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateManager) {
         stateManager.add(EXTENDED);
     }
-};
+}

@@ -26,6 +26,8 @@
     "randomadditions:mossy_deepslate_brick_stairs",
     "randomadditions:mossy_deepslate_brick_slab",
     "randomadditions:mossy_deepslate_brick_wall",
-    "randomadditions:glowcelium"
+    "randomadditions:glowcelium",
+    "randomadditions:ruby_ore",
+    "randomadditions:deepslate_ruby_ore"
   ]
 }

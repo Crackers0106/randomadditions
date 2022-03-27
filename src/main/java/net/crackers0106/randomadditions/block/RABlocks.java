@@ -6,28 +6,21 @@ import net.crackers0106.randomadditions.block.behavior.RASpike;
 import net.crackers0106.randomadditions.block.decorative.RASlabs;
 import net.crackers0106.randomadditions.block.decorative.RAStairs;
 import net.crackers0106.randomadditions.block.decorative.RAWalls;
-import net.crackers0106.randomadditions.gen.configuredfeatures.RATreeConfiguredFeatures;
-import net.crackers0106.randomadditions.gen.tree.sapling.BananaSaplingGenerator;
-import net.crackers0106.randomadditions.item.RAItemGroup;
 import net.crackers0106.randomadditions.util.RABlockSoundGroup;
+import net.crackers0106.randomadditions.worldgen.configuredfeatures.RATreeFeatures;
+import net.crackers0106.randomadditions.worldgen.tree.sapling.BananaSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FlowerBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.HugeMushroomBlock;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.MushroomBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
@@ -71,6 +64,8 @@ public class RABlocks {
 	public static final Block GLOWCELIUM;
 	public static final Block GLOWSHROOM_BLOCK;
 	public static final Block GLOWSHROOM_STEM;
+    public static final Block RUBY_ORE;
+    public static final Block DEEPSLATE_RUBY_ORE;
 
     static {
 
@@ -119,7 +114,7 @@ public class RABlocks {
 					.lightLevel(state -> 7)
 					.emissiveRendering(RABlocks::always)
 					.hasPostProcess(RABlocks::always),
-				() -> RATreeConfiguredFeatures.HUGE_GLOWSHROOM),
+				() -> RATreeFeatures.HUGE_GLOWSHROOM),
 				buildingBlock());
 
 		GLOWCELIUM = registerWithItem("glowcelium", new GlowceliumBlock(FabricBlockSettings.of(Material.GRASS)
@@ -143,6 +138,16 @@ public class RABlocks {
 				.hasPostProcess(RABlocks::always)),
 				buildingBlock());
 
+        RUBY_ORE = registerWithItem("ruby_ore", new OreBlock(FabricBlockSettings.copyOf(EMERALD_ORE)
+                .requiresCorrectToolForDrops().strength(3.0F, 3.0F),
+                UniformInt.of(3, 7)), // Amount of XP dropped
+                buildingBlock());
+
+        DEEPSLATE_RUBY_ORE = registerWithItem("deepslate_ruby_ore", new OreBlock(FabricBlockSettings.copyOf(DEEPSLATE_EMERALD_ORE)
+                .requiresCorrectToolForDrops().strength(4.5F, 3.0F),
+                UniformInt.of(3, 7)),
+                buildingBlock());
+
 	// Plants
 
         BANANA_LEAVES = registerWithItem("banana_leaves", createLeavesBlock(), buildingBlock());
@@ -158,8 +163,8 @@ public class RABlocks {
 		POTTED_ROSE = register("potted_rose", createPottedBlock(ROSE));
 	}
 
-	private static Item.Properties buildingBlock() {
-		return new FabricItemSettings().tab(RAItemGroup.RANDOM_ADDITIONS);
+    private static Item.Properties buildingBlock() {
+		return new FabricItemSettings().tab(RandomAdditions.ITEM_GROUP);
 	}
 
 	private static Block register(String id, Block block) {
@@ -191,7 +196,5 @@ public class RABlocks {
 			return true;
 	}
 
-public static void init() {
-
-	}
+    public static void init() {}
 }

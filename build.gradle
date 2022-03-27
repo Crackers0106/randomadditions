@@ -20,27 +20,26 @@ repositories {
 	maven { url = "https://maven.bai.lol" }
 	maven { url = "https://maven.terraformersmc.com/releases/" }
 	maven { url = "https://maven.parchmentmc.org" }
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.jetbrains:annotations:20.1.0'
+	implementation 'org.jetbrains:annotations:23.0.0'
 
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.layered() {
 		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-1.18.1:2021.12.19@zip")
+		parchment("org.parchmentmc.data:parchment-1.18.2:2022.03.13@zip")
 	}
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-//	modApi "maven.modrinth:sodium:mc1.18-0.4.0-alpha5"
-//	modImplementation "maven.modrinth:phosphor:mc1.18.x-0.8.1"
 	modImplementation ("com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}")
 	modImplementation("net.devtech:arrp:0.+")
-	modRuntimeOnly "maven.modrinth:ferrite-core:4.0.0"
+	modRuntimeOnly "maven.modrinth:ferrite-core:4.2.0"
 	modRuntimeOnly("maven.modrinth:lazydfu:0.1.2")
 	modRuntimeOnly("maven.modrinth:sodium:${project.sodium_version}") // rendering beware
-	runtimeOnly("org.joml:joml:1.10.2")
+	runtimeOnly('org.joml:joml:1.10.4')
 	modRuntimeOnly("maven.modrinth:lithium:${project.lithium_version}")
 //	modRuntimeOnly("maven.modrinth:phosphor:${project.phosphor_version}")
 	modRuntimeOnly("maven.modrinth:iris:${project.iris_version}")

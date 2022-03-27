@@ -38,6 +38,8 @@
 	"block.randomadditions.banana_sapling": "Banana Sapling",
 	"block.randomadditions.rose": "Rose",
 	"block.randomadditions.spike": "Spike",
+    "block.randomadditions.ruby_ore": "Ruby Ore",
+    "block.randomadditions.deepslate_ruby_ore": "Deepslate Ruby Ore",
 
 	"block.randomadditions.glowshroom": "Glowshroom",
 	"block.randomadditions.glowshroom_block": "Glowshroom Block",
@@ -74,6 +76,12 @@
 	"item.randomadditions.copper_leggings": "Copper Leggings",
 	"item.randomadditions.copper_boots": "Copper Boots",
 	"item.randomadditions.amethyst_pickaxe": "Amethyst Pickaxe",
+	"item.randomadditions.amethyst_shovel": "Amethyst Shovel",
+	"item.randomadditions.amethyst_axe": "Amethyst Axe",
+	"item.randomadditions.amethyst_sword": "Amethyst Sword",
+	"item.randomadditions.amethyst_hoe": "Amethyst Hoe",
+    "item.randomadditions.ruby": "Ruby",
+    "item.randomadditions.unmaker": "Unmaker",
 
 	"biome.randomadditions.rainforest": "Rainforest",
 	"biome.randomadditions.shrubland": "Shrubland",

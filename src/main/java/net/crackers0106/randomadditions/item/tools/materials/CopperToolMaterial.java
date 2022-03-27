@@ -6,8 +6,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public class CopperToolMaterial implements Tier {
 
-    public static final CopperToolMaterial INSTANCE = new CopperToolMaterial();
-
     @Override
     public int getUses() {
         return 191;

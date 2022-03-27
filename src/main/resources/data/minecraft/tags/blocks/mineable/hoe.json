@@ -2,9 +2,6 @@
   "replace": false,
   "values": [
     "randomadditions:banana_leaves",
-    "randomadditions:sculk",
-    "randomadditions:sculk_vein",
-    "randomadditions:sculk_catalyst",
     "randomadditions:glowshroom_block",
     "randomadditions:glowshroom_stem"
   ]

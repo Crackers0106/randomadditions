@@ -3,49 +3,47 @@ package net.crackers0106.randomadditions;
 import net.crackers0106.randomadditions.block.RABlockTags;
 import net.crackers0106.randomadditions.block.RABlocks;
 import net.crackers0106.randomadditions.block.RAWools;
-import net.crackers0106.randomadditions.gen.configuredfeatures.RAUndergroundConfiguredFeatures;
-import net.crackers0106.randomadditions.gen.tree.foliageplacer.RAFoliagePlacers;
-import net.crackers0106.randomadditions.item.RAItemGroup;
 import net.crackers0106.randomadditions.item.RAItems;
 import net.crackers0106.randomadditions.util.Instance;
 import net.crackers0106.randomadditions.util.RASoundEvents;
+import net.crackers0106.randomadditions.worldgen.biomes.BiomeRegistry;
+import net.crackers0106.randomadditions.worldgen.configuredfeatures.RACaveFeatures;
+import net.crackers0106.randomadditions.worldgen.tree.foliageplacer.RAFoliagePlacers;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.resources.ResourceLocation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import terrablender.api.TerraBlenderApi;
 
 public class RandomAdditions implements ModInitializer, TerraBlenderApi {
-	public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LoggerFactory.getLogger("Random Additions");
+    public static final String MOD_ID = "randomadditions";
 
-		@Override
-		public void onInitialize () {
-			// This codebase is a fucking disaster
+    public static ResourceLocation locate(String location) {
+        return new ResourceLocation(MOD_ID, location);
+    }
 
-			Instance.init();
-			RAUndergroundConfiguredFeatures.generate();
-			RAFoliagePlacers.init();
-//			BiomeRegistry.registerBiomes();
-			RAItemGroup.init();
-			RABlockTags.init();
-			RABlocks.init();
-//			RASculkBlocks.init();
-			RAWools.init();
-			RAItems.init();
-			RASoundEvents.init();
-			System.out.println("Initialized Random Additions...");
-		}
+    // Create a Creative Mode tab for our mod's items
+    public static final CreativeModeTab ITEM_GROUP = FabricItemGroupBuilder.build(
+            new ResourceLocation(MOD_ID, "random_additions"),
+            () -> new ItemStack(RAItems.BANANA));
 
-	public static final String MOD_ID = "randomadditions";
+    @Override
+    public void onInitialize() {
+        // This codebase is a fucking disaster
 
-//	@Override
-//	public void onTerraBlenderInitialized()
-//	{
-//		// Given we only add two biomes, we should keep our weight relatively low.
-//		BiomeProviders.register(new RABiomeProvider(new Identifier(MOD_ID, "biome_provider"), 0));
-//	}
-
-	public static ResourceLocation locate(String location) {
-		return new ResourceLocation(MOD_ID, location);
-	}
+        Instance.init();
+        RACaveFeatures.generate();
+        RAFoliagePlacers.init();
+        BiomeRegistry.registerBiomes();
+        RABlockTags.init();
+        RABlocks.init();
+        RAWools.init();
+        RAItems.init();
+        RASoundEvents.init();
+        LOGGER.info("Initialized Random Additions...");
+    }
 }

@@ -10,22 +10,24 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class BananaItem extends Item {
-	public BananaItem(Properties settings) {
-		super(settings);
-	}
+    public BananaItem(Properties settings) {
+        super(settings);
+    }
 
-	@Override
-	public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) { // fires when player right clicks
-		ItemStack itemStack = user.getItemInHand(hand);
-		if (itemStack.sameItemStackIgnoreDurability(RAItems.BANANA.getDefaultInstance())) {
-			world.playSound(user, user.getX(), user.getY(), user.getZ(), SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.PLAYERS, 1.0F, 1.0F);
-			ItemStack replaceOneItemStack = ItemUtils.createFilledResult(itemStack, user, new ItemStack(RAItems.PEELED_BANANA));
-			return new InteractionResultHolder(InteractionResult.PASS, replaceOneItemStack);
-		}
+    @Override
+    public InteractionResultHolder<ItemStack> use(@NotNull Level world, Player user, @NotNull InteractionHand hand) { // fires when player right clicks
+        ItemStack heldItem = user.getItemInHand(hand);
+        ItemStack replaceOneItemStack = ItemUtils.createFilledResult(heldItem, user, new ItemStack(RAItems.PEELED_BANANA));
 
-		return InteractionResultHolder.sidedSuccess(itemStack, world.isClientSide());
-	}
+        if (heldItem.sameItemStackIgnoreDurability(RAItems.BANANA.getDefaultInstance())) {
+            world.playSound(user, user.getX(), user.getY(), user.getZ(), SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.PLAYERS, 1.0F, 1.0F);
 
+            return new InteractionResultHolder<>(InteractionResult.SUCCESS, replaceOneItemStack);
+        }
+
+        return InteractionResultHolder.sidedSuccess(heldItem, world.isClientSide());
+    }
 }

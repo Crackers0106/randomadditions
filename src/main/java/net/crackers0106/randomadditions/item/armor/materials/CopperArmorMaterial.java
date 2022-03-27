@@ -10,8 +10,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 public class CopperArmorMaterial implements ArmorMaterial {
     // yes I copied all this from the fabric wiki, suck it nerds
 
-    private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11};
-    private static final int[] PROTECTION_VALUES = new int[] {1, 3, 5, 2};
+    private static final int[] BASE_DURABILITY = new int[] { 13, 15, 16, 11 };
+    private static final int[] PROTECTION_VALUES = new int[] { 1, 3, 5, 2 };
 
     @Override
     public int getDurabilityForSlot(EquipmentSlot slot) {

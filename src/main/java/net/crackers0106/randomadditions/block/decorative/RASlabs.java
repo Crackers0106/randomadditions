@@ -4,5 +4,5 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class RASlabs extends SlabBlock {
-    public RASlabs(BlockState defaultState, Properties settings) { super(settings); }
+    public RASlabs(BlockState state, Properties settings) { super(settings); }
 }

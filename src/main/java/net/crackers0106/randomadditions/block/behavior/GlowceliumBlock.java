@@ -1,7 +1,7 @@
 package net.crackers0106.randomadditions.block.behavior;
 
 import net.crackers0106.randomadditions.block.RABlocks;
-import net.crackers0106.randomadditions.gen.configuredfeatures.RAUndergroundConfiguredFeatures;
+import net.crackers0106.randomadditions.worldgen.placedfeatures.RACavePlacements;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.lighting.LayerLightEngine;
+
 import java.util.Random;
 
 public class GlowceliumBlock extends NyliumBlock {
@@ -52,7 +53,7 @@ public class GlowceliumBlock extends NyliumBlock {
         BlockPos blockPos = pos.above();
         ChunkGenerator chunkGenerator = world.getChunkSource().getGenerator();
         if (blockState.is(RABlocks.GLOWCELIUM)) {
-            RAUndergroundConfiguredFeatures.GLOWSHROOM_VEGETATION.place(world, chunkGenerator, random, blockPos);
+            RACavePlacements.PATCH_GLOWSHROOM_BONEMEAL.value().place(world, chunkGenerator, random, blockPos);
         }
     }
 }

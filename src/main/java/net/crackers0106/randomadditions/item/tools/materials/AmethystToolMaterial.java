@@ -6,8 +6,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public class AmethystToolMaterial implements Tier {
 
-    public static final AmethystToolMaterial INSTANCE = new AmethystToolMaterial();
-
     @Override
     public int getUses() {
         return 550;

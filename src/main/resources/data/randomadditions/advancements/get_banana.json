@@ -1,0 +1,37 @@
+{
+  "parent": "randomadditions:root",
+  "display": {
+    "icon": {
+      "item": "randomadditions:banana"
+    },
+    "title": {
+      "text": "Potassium"
+    },
+    "description": {
+      "text": "Get the Banana"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "banana": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "randomadditions:banana"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "banana"
+    ]
+  ]
+}

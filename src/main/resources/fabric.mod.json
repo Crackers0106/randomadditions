@@ -17,13 +17,12 @@
 
   "environment": "*",
 
-  "accessWidener": "randomadditions.accesswidener",
   "entrypoints": {
     "main": [
       "net.crackers0106.randomadditions.RandomAdditions"
     ],
     "terrablender": [
-      "net.crackers0106.randomadditions.RandomAdditions"
+      "net.crackers0106.randomadditions.worldgen.biomes.TerraBlenderInit"
     ],
     "client": [
     ]
